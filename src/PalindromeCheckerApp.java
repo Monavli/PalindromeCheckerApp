@@ -4,23 +4,27 @@ public class PalindromeCheckerApp {
 
 
         public static void main(String[] args) {
-            Scanner scanner = new Scanner(System.in);
 
-            System.out.print("Input text: ");
-            String input = scanner.nextLine();
+            String input = "radar";
 
-            String reversed = "";
+            char[] chars = input.toCharArray();
 
-            // Iterate from last character to first
-            for (int i = input.length() - 1; i >= 0; i--) {
-                reversed += input.charAt(i);
+            int start = 0;
+
+            int end = chars.length - 1;
+
+            boolean isPalindrome = true;
+
+            while (start < end) {
+                if (chars[start] != chars[end]) {
+                    isPalindrome = false;
+                    break;
+                }
+                start++;
+                end--;
             }
 
-            boolean isPalindrome = input.equalsIgnoreCase(reversed);
-
-            System.out.println("Reversed text: " + reversed);
-            System.out.println("Is it a Palindrome? : " + isPalindrome);
-
-            scanner.close();
+            System.out.println("Input : " + input);
+            System.out.println("Is Palindrome? : " + isPalindrome);
         }
     }
