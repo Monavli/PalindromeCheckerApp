@@ -2,24 +2,26 @@ import java.util.Scanner;
 
 public class PalindromeCheckerApp {
 
+
         public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);
 
             System.out.print("Input text: ");
             String input = scanner.nextLine();
 
-            // Normalize input: ignore case
-            String normalized = input.toLowerCase();
+            String reversed = "";
 
-            // Reverse the string
-            String reversed = new StringBuilder(normalized).reverse().toString();
+            // Iterate from last character to first
+            for (int i = input.length() - 1; i >= 0; i--) {
+                reversed += input.charAt(i);
+            }
 
-            // Check palindrome
-            boolean isPalindrome = normalized.equals(reversed);
+            boolean isPalindrome = input.equalsIgnoreCase(reversed);
 
+            System.out.println("Reversed text: " + reversed);
             System.out.println("Is it a Palindrome? : " + isPalindrome);
 
             scanner.close();
-
+        }
     }
 }
